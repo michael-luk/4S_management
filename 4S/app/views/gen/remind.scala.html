@@ -1,0 +1,13 @@
+@(remindList: List[Remind]) @front_frame(TableInfoReader.getTableComment("Remind"), "RemindApp", "RemindController") {
+    @for(remind <- remindList) {
+        <ul>
+            <li>@TableInfoReader.getFieldComment("Remind", "id"): @remind.id</li>
+            <li>@TableInfoReader.getFieldComment("Remind", "name"): @remind.name</li>
+            <li>@TableInfoReader.getFieldComment("Remind", "status"): @EnumInfoReader.getEnumName("Remind", "status", remind.status)</li>
+            <li>@TableInfoReader.getFieldComment("Remind", "lastUpdateTime"): @LyLib.Utils.DateUtil.Date2Str(remind.lastUpdateTime)</li>
+            <li>@TableInfoReader.getFieldComment("Remind", "createdAt"): @LyLib.Utils.DateUtil.Date2Str(remind.createdAt)</li>
+            <li>@TableInfoReader.getFieldComment("Remind", "description"): @remind.description</li>
+            <li>@TableInfoReader.getFieldComment("Remind", "comment"): @remind.comment</li>
+        </ul>
+    }
+}

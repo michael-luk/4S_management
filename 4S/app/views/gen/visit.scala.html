@@ -1,0 +1,25 @@
+@(visitList: List[Visit]) @front_frame(TableInfoReader.getTableComment("Visit"), "VisitApp", "VisitController") {
+    @for(visit <- visitList) {
+        <ul>
+            <li>@TableInfoReader.getFieldComment("Visit", "id"): @visit.id</li>
+            <li>@TableInfoReader.getFieldComment("Visit", "name"): @visit.name</li>
+            <li>@TableInfoReader.getFieldComment("Visit", "status"): @EnumInfoReader.getEnumName("Visit", "status", visit.status)</li>
+            <li>@TableInfoReader.getFieldComment("Visit", "typeEnum"): @EnumInfoReader.getEnumName("Visit", "typeEnum", visit.typeEnum)</li>
+            <li>@TableInfoReader.getFieldComment("Visit", "images"): 
+                @if(visit.images) {
+                    @for(imageFile <- visit.images.split(",")) {
+                        <a href="/showimg/upload/@imageFile" target="_blank"><img src="/showimg/thumb/@imageFile" /></a>
+                    }
+                } else {
+                      <span>无</span>                    
+                }
+            </li>
+            <li>@TableInfoReader.getFieldComment("Visit", "lastUpdateTime"): @LyLib.Utils.DateUtil.Date2Str(visit.lastUpdateTime)</li>
+            <li>@TableInfoReader.getFieldComment("Visit", "createdAt"): @LyLib.Utils.DateUtil.Date2Str(visit.createdAt)</li>
+            <li>@TableInfoReader.getFieldComment("Visit", "description1"): @visit.description1</li>
+            <li>@TableInfoReader.getFieldComment("Visit", "description2"): @visit.description2</li>
+            <li>@TableInfoReader.getFieldComment("Visit", "comment"): @visit.comment</li>
+            <li>@TableInfoReader.getFieldComment("Visit", "refUserId"): @visit.refUserId</li>
+        </ul>
+    }
+}

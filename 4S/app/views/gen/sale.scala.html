@@ -1,0 +1,19 @@
+@(saleList: List[Sale]) @front_frame(TableInfoReader.getTableComment("Sale"), "SaleApp", "SaleController") {
+    @for(sale <- saleList) {
+        <ul>
+            <li>@TableInfoReader.getFieldComment("Sale", "id"): @sale.id</li>
+            <li>@TableInfoReader.getFieldComment("Sale", "showNo"): @sale.showNo</li>
+            <li>@TableInfoReader.getFieldComment("Sale", "name"): @sale.name</li>
+            <li>@TableInfoReader.getFieldComment("Sale", "soldNumber"): @sale.soldNumber</li>
+            <li>@TableInfoReader.getFieldComment("Sale", "lastUpdateTime"): @LyLib.Utils.DateUtil.Date2Str(sale.lastUpdateTime)</li>
+            <li>@TableInfoReader.getFieldComment("Sale", "createdAt"): @LyLib.Utils.DateUtil.Date2Str(sale.createdAt)</li>
+            <li>@TableInfoReader.getFieldComment("Sale", "endTime"): @LyLib.Utils.DateUtil.Date2Str(sale.endTime)</li>
+            <li>@TableInfoReader.getFieldComment("Sale", "images"): @sale.images</li>
+            <li>@TableInfoReader.getFieldComment("Sale", "description"): @sale.description</li>
+            <li>@TableInfoReader.getFieldComment("Sale", "comment"): @sale.comment</li>
+            <li>@TableInfoReader.getFieldComment("Sale", "price"): @sale.price</li>
+            <li>@TableInfoReader.getFieldComment("Sale", "originalPrice"): @sale.originalPrice</li>
+            <li>@TableInfoReader.getFieldComment("Sale", "status"): @EnumInfoReader.getEnumName("Sale", "status", sale.status)</li>
+        </ul>
+    }
+}

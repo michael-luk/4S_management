@@ -1,0 +1,23 @@
+@(feedbackList: List[Feedback]) @front_frame(TableInfoReader.getTableComment("Feedback"), "FeedbackApp", "FeedbackController") {
+    @for(feedback <- feedbackList) {
+        <ul>
+            <li>@TableInfoReader.getFieldComment("Feedback", "id"): @feedback.id</li>
+            <li>@TableInfoReader.getFieldComment("Feedback", "name"): @feedback.name</li>
+            <li>@TableInfoReader.getFieldComment("Feedback", "status"): @EnumInfoReader.getEnumName("Feedback", "status", feedback.status)</li>
+            <li>@TableInfoReader.getFieldComment("Feedback", "description"): @feedback.description</li>
+            <li>@TableInfoReader.getFieldComment("Feedback", "refUserId"): @feedback.refUserId</li>
+            <li>@TableInfoReader.getFieldComment("Feedback", "images"): 
+                @if(feedback.images) {
+                    @for(imageFile <- feedback.images.split(",")) {
+                        <a href="/showimg/upload/@imageFile" target="_blank"><img src="/showimg/thumb/@imageFile" /></a>
+                    }
+                } else {
+                      <span>无</span>                    
+                }
+            </li>
+            <li>@TableInfoReader.getFieldComment("Feedback", "lastUpdateTime"): @LyLib.Utils.DateUtil.Date2Str(feedback.lastUpdateTime)</li>
+            <li>@TableInfoReader.getFieldComment("Feedback", "createdAt"): @LyLib.Utils.DateUtil.Date2Str(feedback.createdAt)</li>
+            <li>@TableInfoReader.getFieldComment("Feedback", "comment"): @feedback.comment</li>
+        </ul>
+    }
+}

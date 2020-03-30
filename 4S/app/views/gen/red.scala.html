@@ -1,0 +1,24 @@
+@(redList: List[Red]) @front_frame(TableInfoReader.getTableComment("Red"), "RedApp", "RedController") {
+    @for(red <- redList) {
+        <ul>
+            <li>@TableInfoReader.getFieldComment("Red", "id"): @red.id</li>
+            <li>@TableInfoReader.getFieldComment("Red", "name"): @red.name</li>
+            <li>@TableInfoReader.getFieldComment("Red", "status"): @EnumInfoReader.getEnumName("Red", "status", red.status)</li>
+            <li>@TableInfoReader.getFieldComment("Red", "images"): 
+                @if(red.images) {
+                    @for(imageFile <- red.images.split(",")) {
+                        <a href="/showimg/upload/@imageFile" target="_blank"><img src="/showimg/thumb/@imageFile" /></a>
+                    }
+                } else {
+                      <span>无</span>                    
+                }
+            </li>
+            <li>@TableInfoReader.getFieldComment("Red", "money"): @red.money</li>
+            <li>@TableInfoReader.getFieldComment("Red", "lastUpdateTime"): @LyLib.Utils.DateUtil.Date2Str(red.lastUpdateTime)</li>
+            <li>@TableInfoReader.getFieldComment("Red", "createdAt"): @LyLib.Utils.DateUtil.Date2Str(red.createdAt)</li>
+            <li>@TableInfoReader.getFieldComment("Red", "description1"): @red.description1</li>
+            <li>@TableInfoReader.getFieldComment("Red", "description2"): @red.description2</li>
+            <li>@TableInfoReader.getFieldComment("Red", "comment"): @red.comment</li>
+        </ul>
+    }
+}

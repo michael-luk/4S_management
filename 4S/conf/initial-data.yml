@@ -1,0 +1,660 @@
+
+admin:
+    - !!models.Admin
+        name: "admin_1"
+        password: "e10adc3949ba59abbe56e057f20f883e"
+        descriptions: "0"
+        lastLoginIp: "0"
+        lastLoginIpArea: "0"
+        status: 0
+        userRoleEnum: 0
+        comment: "0"
+
+    - !!models.Admin
+        name: "admin_2"
+        password: "e10adc3949ba59abbe56e057f20f883e"
+        descriptions: "1"
+        lastLoginIp: "1"
+        lastLoginIpArea: "1"
+        status: 0
+        userRoleEnum: 1
+        comment: "1"
+
+    - !!models.Admin
+        name: "admin_3"
+        password: "e10adc3949ba59abbe56e057f20f883e"
+        descriptions: "2"
+        lastLoginIp: "2"
+        lastLoginIpArea: "2"
+        status: 0
+        userRoleEnum: 2
+        comment: "2"
+
+adminJournal:
+    - !!models.AdminJournal
+        name: "adminJournal_1"
+        actor: "0"
+        actorLevel: "0"
+
+    - !!models.AdminJournal
+        name: "adminJournal_2"
+        actor: "1"
+        actorLevel: "1"
+
+    - !!models.AdminJournal
+        name: "adminJournal_3"
+        actor: "2"
+        actorLevel: "2"
+
+car:
+    - !!models.Car
+        name: "car_1"
+        classify: "0"
+        status: 0
+        isVip: True
+        leaveRecordEnum: 0
+        leaveReason: "0"
+        images: "0"
+        smallImages: "0"
+        description1: "0"
+        description2: "0"
+        comment: "0"
+
+    - !!models.Car
+        name: "car_2"
+        classify: "1"
+        status: 1
+        isVip: False
+        leaveRecordEnum: 1
+        leaveReason: "1"
+        images: "1"
+        smallImages: "1"
+        description1: "1"
+        description2: "1"
+        comment: "1"
+
+    - !!models.Car
+        name: "car_3"
+        classify: "2"
+        status: 2
+        isVip: True
+        leaveRecordEnum: 2
+        leaveReason: "2"
+        images: "2"
+        smallImages: "2"
+        description1: "2"
+        description2: "2"
+        comment: "2"
+
+complain:
+    - !!models.Complain
+        name: "complain_1"
+        status: 0
+        description: "0"
+        images: "0"
+        comment: "0"
+
+    - !!models.Complain
+        name: "complain_2"
+        status: 1
+        description: "1"
+        images: "1"
+        comment: "1"
+
+    - !!models.Complain
+        name: "complain_3"
+        status: 2
+        description: "2"
+        images: "2"
+        comment: "2"
+
+config:
+    - !!models.Config
+        name: "config_1"
+        content: "0"
+        typeEnum: 0
+        comment: "0"
+
+    - !!models.Config
+        name: "config_2"
+        content: "1"
+        typeEnum: 1
+        comment: "1"
+
+    - !!models.Config
+        name: "config_3"
+        content: "2"
+        typeEnum: 2
+        comment: "2"
+
+feedback:
+    - !!models.Feedback
+        name: "feedback_1"
+        status: 0
+        description: "0"
+        images: "0"
+        comment: "0"
+
+    - !!models.Feedback
+        name: "feedback_2"
+        status: 1
+        description: "1"
+        images: "1"
+        comment: "1"
+
+    - !!models.Feedback
+        name: "feedback_3"
+        status: 2
+        description: "2"
+        images: "2"
+        comment: "2"
+
+fix:
+    - !!models.Fix
+        name: "fix_1"
+        status: 0
+        images: "0"
+        description1: "0"
+        description2: "0"
+        comment: "0"
+
+    - !!models.Fix
+        name: "fix_2"
+        status: 1
+        images: "1"
+        description1: "1"
+        description2: "1"
+        comment: "1"
+
+    - !!models.Fix
+        name: "fix_3"
+        status: 2
+        images: "2"
+        description1: "2"
+        description2: "2"
+        comment: "2"
+
+info:
+    - !!models.Info
+        name: "info_1"
+        classify: "0"
+        phone: "0"
+        url: "0"
+        visible: True
+        status: 0
+        images: "0"
+        smallImages: "0"
+        description1: "0"
+        description2: "0"
+        comment: "0"
+
+    - !!models.Info
+        name: "info_2"
+        classify: "1"
+        phone: "1"
+        url: "1"
+        visible: False
+        status: 1
+        images: "1"
+        smallImages: "1"
+        description1: "1"
+        description2: "1"
+        comment: "1"
+
+    - !!models.Info
+        name: "info_3"
+        classify: "2"
+        phone: "2"
+        url: "2"
+        visible: True
+        status: 2
+        images: "2"
+        smallImages: "2"
+        description1: "2"
+        description2: "2"
+        comment: "2"
+
+pop:
+    - !!models.Pop
+        name: "pop_1"
+        classify: "0"
+        status: 0
+        images: "0"
+        smallImages: "0"
+        description1: "0"
+        description2: "0"
+        comment: "0"
+
+    - !!models.Pop
+        name: "pop_2"
+        classify: "1"
+        status: 1
+        images: "1"
+        smallImages: "1"
+        description1: "1"
+        description2: "1"
+        comment: "1"
+
+    - !!models.Pop
+        name: "pop_3"
+        classify: "2"
+        status: 2
+        images: "2"
+        smallImages: "2"
+        description1: "2"
+        description2: "2"
+        comment: "2"
+
+product:
+    - !!models.Product
+        showNo: "0"
+        name: "product_1"
+        soldNumber: 0
+        unit: "0"
+        images: "0"
+        description: "0"
+        comment: "0"
+        price: 0.0
+        originalPrice: 0.0
+        status: 0
+
+    - !!models.Product
+        showNo: "1"
+        name: "product_2"
+        soldNumber: 1
+        unit: "1"
+        images: "1"
+        description: "1"
+        comment: "1"
+        price: 1.0
+        originalPrice: 1.0
+        status: 1
+
+    - !!models.Product
+        showNo: "2"
+        name: "product_3"
+        soldNumber: 2
+        unit: "2"
+        images: "2"
+        description: "2"
+        comment: "2"
+        price: 2.0
+        originalPrice: 2.0
+        status: 2
+
+purchase:
+    - !!models.Purchase
+        name: "purchase_1"
+        status: 0
+        quantity: "0"
+        pids: "0"
+        amount: 0.0
+        useVipPoint: 0
+        vipPointDiscount: 0.0
+        useBalance: 0.0
+        balanceDiscount: 0.0
+        shipName: "0"
+        shipPhone: "0"
+        shipProvince: "0"
+        shipCity: "0"
+        shipZone: "0"
+        shipLocation: "0"
+        buyerMessage: "0"
+        payReturnCode: "0"
+        payReturnMsg: "0"
+        payResultCode: "0"
+        payTransitionId: "0"
+        payAmount: 0.0
+        payBank: "0"
+        paySign: "0"
+        description1: "0"
+        description2: "0"
+        comment: "0"
+
+    - !!models.Purchase
+        name: "purchase_2"
+        status: 1
+        quantity: "1"
+        pids: "1"
+        amount: 1.0
+        useVipPoint: 1
+        vipPointDiscount: 1.0
+        useBalance: 1.0
+        balanceDiscount: 1.0
+        shipName: "1"
+        shipPhone: "1"
+        shipProvince: "1"
+        shipCity: "1"
+        shipZone: "1"
+        shipLocation: "1"
+        buyerMessage: "1"
+        payReturnCode: "1"
+        payReturnMsg: "1"
+        payResultCode: "1"
+        payTransitionId: "1"
+        payAmount: 1.0
+        payBank: "1"
+        paySign: "1"
+        description1: "1"
+        description2: "1"
+        comment: "1"
+
+    - !!models.Purchase
+        name: "purchase_3"
+        status: 2
+        quantity: "2"
+        pids: "2"
+        amount: 2.0
+        useVipPoint: 2
+        vipPointDiscount: 2.0
+        useBalance: 2.0
+        balanceDiscount: 2.0
+        shipName: "2"
+        shipPhone: "2"
+        shipProvince: "2"
+        shipCity: "2"
+        shipZone: "2"
+        shipLocation: "2"
+        buyerMessage: "2"
+        payReturnCode: "2"
+        payReturnMsg: "2"
+        payResultCode: "2"
+        payTransitionId: "2"
+        payAmount: 2.0
+        payBank: "2"
+        paySign: "2"
+        description1: "2"
+        description2: "2"
+        comment: "2"
+
+red:
+    - !!models.Red
+        name: "red_1"
+        status: 0
+        images: "0"
+        money: 0.0
+        description1: "0"
+        description2: "0"
+        comment: "0"
+
+    - !!models.Red
+        name: "red_2"
+        status: 1
+        images: "1"
+        money: 1.0
+        description1: "1"
+        description2: "1"
+        comment: "1"
+
+    - !!models.Red
+        name: "red_3"
+        status: 2
+        images: "2"
+        money: 2.0
+        description1: "2"
+        description2: "2"
+        comment: "2"
+
+remind:
+    - !!models.Remind
+        name: "remind_1"
+        status: 0
+        description: "0"
+        comment: "0"
+
+    - !!models.Remind
+        name: "remind_2"
+        status: 1
+        description: "1"
+        comment: "1"
+
+    - !!models.Remind
+        name: "remind_3"
+        status: 2
+        description: "2"
+        comment: "2"
+
+sale:
+    - !!models.Sale
+        showNo: "0"
+        name: "sale_1"
+        soldNumber: 0
+        images: "0"
+        description: "0"
+        comment: "0"
+        price: 0.0
+        originalPrice: 0.0
+        status: 0
+
+    - !!models.Sale
+        showNo: "1"
+        name: "sale_2"
+        soldNumber: 1
+        images: "1"
+        description: "1"
+        comment: "1"
+        price: 1.0
+        originalPrice: 1.0
+        status: 1
+
+    - !!models.Sale
+        showNo: "2"
+        name: "sale_3"
+        soldNumber: 2
+        images: "2"
+        description: "2"
+        comment: "2"
+        price: 2.0
+        originalPrice: 2.0
+        status: 2
+
+smsInfo:
+    - !!models.SmsInfo
+        name: "smsInfo_1"
+        phone: "0"
+        checkCode: "0"
+        sendXml: "0"
+        returnTable: "0"
+        receiveXml: "0"
+        code: "0"
+        returnMsg: "0"
+        comment: "0"
+
+    - !!models.SmsInfo
+        name: "smsInfo_2"
+        phone: "1"
+        checkCode: "1"
+        sendXml: "1"
+        returnTable: "1"
+        receiveXml: "1"
+        code: "1"
+        returnMsg: "1"
+        comment: "1"
+
+    - !!models.SmsInfo
+        name: "smsInfo_3"
+        phone: "2"
+        checkCode: "2"
+        sendXml: "2"
+        returnTable: "2"
+        receiveXml: "2"
+        code: "2"
+        returnMsg: "2"
+        comment: "2"
+
+staff:
+    - !!models.Staff
+        name: "staff_1"
+        status: 0
+        images: "0"
+        description1: "0"
+        description2: "0"
+        comment: "0"
+
+    - !!models.Staff
+        name: "staff_2"
+        status: 1
+        images: "1"
+        description1: "1"
+        description2: "1"
+        comment: "1"
+
+    - !!models.Staff
+        name: "staff_3"
+        status: 2
+        images: "2"
+        description1: "2"
+        description2: "2"
+        comment: "2"
+
+talkSkill:
+    - !!models.TalkSkill
+        name: "talkSkill_1"
+        answer: "0"
+        status: 0
+        images: "0"
+        smallImages: "0"
+        description: "0"
+        comment: "0"
+
+    - !!models.TalkSkill
+        name: "talkSkill_2"
+        answer: "1"
+        status: 1
+        images: "1"
+        smallImages: "1"
+        description: "1"
+        comment: "1"
+
+    - !!models.TalkSkill
+        name: "talkSkill_3"
+        answer: "2"
+        status: 2
+        images: "2"
+        smallImages: "2"
+        description: "2"
+        comment: "2"
+
+ticket:
+    - !!models.Ticket
+        name: "ticket_1"
+        status: 0
+        description: "0"
+        images: "0"
+        comment: "0"
+
+    - !!models.Ticket
+        name: "ticket_2"
+        status: 1
+        description: "1"
+        images: "1"
+        comment: "1"
+
+    - !!models.Ticket
+        name: "ticket_3"
+        status: 2
+        description: "2"
+        images: "2"
+        comment: "2"
+
+user:
+    - !!models.User
+        name: "user_1"
+        thirdId: "0"
+        loginName: "0"
+        email: "0"
+        isEmailVerified: True
+        emailKey: "0"
+        password: "e10adc3949ba59abbe56e057f20f883e"
+        headImage: "0"
+        images: "0"
+        sexEnum: 0
+        phone: "0"
+        cardNumber: "0"
+        country: "0"
+        province: "0"
+        city: "0"
+        zone: "0"
+        address: "0"
+        lastLoginIp: "0"
+        lastLoginIpArea: "0"
+        status: 0
+        userRoleEnum: 0
+        comment: "0"
+
+    - !!models.User
+        name: "user_2"
+        thirdId: "1"
+        loginName: "1"
+        email: "1"
+        isEmailVerified: False
+        emailKey: "1"
+        password: "e10adc3949ba59abbe56e057f20f883e"
+        headImage: "1"
+        images: "1"
+        sexEnum: 1
+        phone: "1"
+        cardNumber: "1"
+        country: "1"
+        province: "1"
+        city: "1"
+        zone: "1"
+        address: "1"
+        lastLoginIp: "1"
+        lastLoginIpArea: "1"
+        status: 0
+        userRoleEnum: 1
+        comment: "1"
+
+    - !!models.User
+        name: "user_3"
+        thirdId: "2"
+        loginName: "2"
+        email: "2"
+        isEmailVerified: True
+        emailKey: "2"
+        password: "e10adc3949ba59abbe56e057f20f883e"
+        headImage: "2"
+        images: "2"
+        sexEnum: 2
+        phone: "2"
+        cardNumber: "2"
+        country: "2"
+        province: "2"
+        city: "2"
+        zone: "2"
+        address: "2"
+        lastLoginIp: "2"
+        lastLoginIpArea: "2"
+        status: 0
+        userRoleEnum: 2
+        comment: "2"
+
+visit:
+    - !!models.Visit
+        name: "visit_1"
+        status: 0
+        typeEnum: 0
+        images: "0"
+        description1: "0"
+        description2: "0"
+        comment: "0"
+
+    - !!models.Visit
+        name: "visit_2"
+        status: 1
+        typeEnum: 1
+        images: "1"
+        description1: "1"
+        description2: "1"
+        comment: "1"
+
+    - !!models.Visit
+        name: "visit_3"
+        status: 2
+        typeEnum: 2
+        images: "2"
+        description1: "2"
+        description2: "2"
+        comment: "2"
+

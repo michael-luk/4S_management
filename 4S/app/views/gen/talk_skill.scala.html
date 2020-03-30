@@ -1,0 +1,32 @@
+@(talkSkillList: List[TalkSkill]) @front_frame(TableInfoReader.getTableComment("TalkSkill"), "TalkSkillApp", "TalkSkillController") {
+    @for(talkSkill <- talkSkillList) {
+        <ul>
+            <li>@TableInfoReader.getFieldComment("TalkSkill", "id"): @talkSkill.id</li>
+            <li>@TableInfoReader.getFieldComment("TalkSkill", "name"): @talkSkill.name</li>
+            <li>@TableInfoReader.getFieldComment("TalkSkill", "answer"): @talkSkill.answer</li>
+            <li>@TableInfoReader.getFieldComment("TalkSkill", "status"): @EnumInfoReader.getEnumName("TalkSkill", "status", talkSkill.status)</li>
+            <li>@TableInfoReader.getFieldComment("TalkSkill", "images"): 
+                @if(talkSkill.images) {
+                    @for(imageFile <- talkSkill.images.split(",")) {
+                        <a href="/showimg/upload/@imageFile" target="_blank"><img src="/showimg/thumb/@imageFile" /></a>
+                    }
+                } else {
+                      <span>无</span>                    
+                }
+            </li>
+            <li>@TableInfoReader.getFieldComment("TalkSkill", "smallImages"): 
+                @if(talkSkill.smallImages) {
+                    @for(imageFile <- talkSkill.smallImages.split(",")) {
+                        <a href="/showimg/upload/@imageFile" target="_blank"><img src="/showimg/thumb/@imageFile" /></a>
+                    }
+                } else {
+                      <span>无</span>                    
+                }
+            </li>
+            <li>@TableInfoReader.getFieldComment("TalkSkill", "lastUpdateTime"): @LyLib.Utils.DateUtil.Date2Str(talkSkill.lastUpdateTime)</li>
+            <li>@TableInfoReader.getFieldComment("TalkSkill", "createdAt"): @LyLib.Utils.DateUtil.Date2Str(talkSkill.createdAt)</li>
+            <li>@TableInfoReader.getFieldComment("TalkSkill", "description"): @talkSkill.description</li>
+            <li>@TableInfoReader.getFieldComment("TalkSkill", "comment"): @talkSkill.comment</li>
+        </ul>
+    }
+}

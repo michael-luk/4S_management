@@ -1,0 +1,23 @@
+@(complainList: List[Complain]) @front_frame(TableInfoReader.getTableComment("Complain"), "ComplainApp", "ComplainController") {
+    @for(complain <- complainList) {
+        <ul>
+            <li>@TableInfoReader.getFieldComment("Complain", "id"): @complain.id</li>
+            <li>@TableInfoReader.getFieldComment("Complain", "name"): @complain.name</li>
+            <li>@TableInfoReader.getFieldComment("Complain", "status"): @EnumInfoReader.getEnumName("Complain", "status", complain.status)</li>
+            <li>@TableInfoReader.getFieldComment("Complain", "description"): @complain.description</li>
+            <li>@TableInfoReader.getFieldComment("Complain", "refUserId"): @complain.refUserId</li>
+            <li>@TableInfoReader.getFieldComment("Complain", "images"): 
+                @if(complain.images) {
+                    @for(imageFile <- complain.images.split(",")) {
+                        <a href="/showimg/upload/@imageFile" target="_blank"><img src="/showimg/thumb/@imageFile" /></a>
+                    }
+                } else {
+                      <span>无</span>                    
+                }
+            </li>
+            <li>@TableInfoReader.getFieldComment("Complain", "lastUpdateTime"): @LyLib.Utils.DateUtil.Date2Str(complain.lastUpdateTime)</li>
+            <li>@TableInfoReader.getFieldComment("Complain", "createdAt"): @LyLib.Utils.DateUtil.Date2Str(complain.createdAt)</li>
+            <li>@TableInfoReader.getFieldComment("Complain", "comment"): @complain.comment</li>
+        </ul>
+    }
+}

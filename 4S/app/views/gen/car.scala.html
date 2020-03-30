@@ -1,0 +1,37 @@
+@(carList: List[Car]) @front_frame(TableInfoReader.getTableComment("Car"), "CarApp", "CarController") {
+    @for(car <- carList) {
+        <ul>
+            <li>@TableInfoReader.getFieldComment("Car", "id"): @car.id</li>
+            <li>@TableInfoReader.getFieldComment("Car", "name"): @car.name</li>
+            <li>@TableInfoReader.getFieldComment("Car", "classify"): @car.classify</li>
+            <li>@TableInfoReader.getFieldComment("Car", "status"): @EnumInfoReader.getEnumName("Car", "status", car.status)</li>
+            <li>@TableInfoReader.getFieldComment("Car", "isVip"): @car.isVip</li>
+            <li>@TableInfoReader.getFieldComment("Car", "leaveRecordEnum"): @EnumInfoReader.getEnumName("Car", "leaveRecordEnum", car.leaveRecordEnum)</li>
+            <li>@TableInfoReader.getFieldComment("Car", "leaveReason"): @car.leaveReason</li>
+            <li>@TableInfoReader.getFieldComment("Car", "images"): 
+                @if(car.images) {
+                    @for(imageFile <- car.images.split(",")) {
+                        <a href="/showimg/upload/@imageFile" target="_blank"><img src="/showimg/thumb/@imageFile" /></a>
+                    }
+                } else {
+                      <span>无</span>                    
+                }
+            </li>
+            <li>@TableInfoReader.getFieldComment("Car", "smallImages"): 
+                @if(car.smallImages) {
+                    @for(imageFile <- car.smallImages.split(",")) {
+                        <a href="/showimg/upload/@imageFile" target="_blank"><img src="/showimg/thumb/@imageFile" /></a>
+                    }
+                } else {
+                      <span>无</span>                    
+                }
+            </li>
+            <li>@TableInfoReader.getFieldComment("Car", "lastUpdateTime"): @LyLib.Utils.DateUtil.Date2Str(car.lastUpdateTime)</li>
+            <li>@TableInfoReader.getFieldComment("Car", "createdAt"): @LyLib.Utils.DateUtil.Date2Str(car.createdAt)</li>
+            <li>@TableInfoReader.getFieldComment("Car", "description1"): @car.description1</li>
+            <li>@TableInfoReader.getFieldComment("Car", "description2"): @car.description2</li>
+            <li>@TableInfoReader.getFieldComment("Car", "comment"): @car.comment</li>
+            <li>@TableInfoReader.getFieldComment("Car", "refUserId"): @car.refUserId</li>
+        </ul>
+    }
+}

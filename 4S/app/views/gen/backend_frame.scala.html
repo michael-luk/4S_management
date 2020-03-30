@@ -1,0 +1,370 @@
+
+@(title: String, app: String, controller: String)(content: Html)
+
+<!DOCTYPE html>
+<html lang="zh" ng-app="@app">
+    <head>
+        <meta charset="utf-8" />
+        <title>@biz.ConfigBiz.getStrConfig("app.name") - 后台管理系统</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <link rel="stylesheet" href='@routes.Assets.at("css/ui-grid.min.css")' />
+        <link rel="stylesheet" href='@routes.Assets.at("css/main_bootstrap.min.css")' />
+        <link rel="stylesheet" href='@routes.Assets.at("css/mygrid.css")' />
+        <link rel="stylesheet" href='@routes.Assets.at("css/font-awesome.min.css")' />
+        <link rel="stylesheet" href='@routes.Assets.at("css/bootstrap-datetimepicker.min.css")' />
+        <link rel="stylesheet" href='@routes.Assets.at("css/simplify.min.css")' />
+        <link rel="stylesheet" href='@routes.Assets.at("js/rich/font-awesome.css")' />
+        <link rel="stylesheet" href='@routes.Assets.at("js/rich/simditor.css")' />
+
+        <!--[if IE 7]>
+		  <link rel="stylesheet" href='   @routes.Assets.at("css/font-awesome-ie7.min.css") ' />
+            <![endif]-->
+    </head>
+
+    <body ng-controller="@controller" class="overflow-hidden">
+        <div class="wrapper preload">
+            <header class="top-nav">
+                <div class="top-nav-inner">
+                    <div class="nav-header">
+                        <a href="/admin" class="brand">
+                            <span class="brand-name">@biz.ConfigBiz.getStrConfig("app.name")-后台管理</span>
+                        </a>
+                    </div>
+                    <div class="nav-container">
+                        <button type="button" class="navbar-toggle pull-left sidebar-toggle" id="sidebarToggleLG">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <div class="pull-right m-right-sm">
+                            <div class="user-block hidden-xs">
+                                <a href="/admin/logout">
+                                    <i class="fa fa-power-off fa-lg"></i>
+                                    <span class="m-left-xs">@session.get("name") 退出</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- ./top-nav-inner -->
+            </header>
+            <aside class="sidebar-menu fixed">
+                <div class="sidebar-inner scrollable-sidebar">
+                    <div class="main-menu">
+                        <ul class="accordion">
+                            <li class="menu-header">
+                                Main Menu
+                            </li>
+                            
+                            <li class="bg-palette1" ng-class="{'active': isAdmin}">
+                                <a href="/admin/admin">
+                                    <span class="menu-content block">
+                                        <span class="menu-icon">
+                                            <i class="block fa fa-bookmark fa-lg" ng-class="{'fa-bookmark-o': isAdmin}">
+                                            </i>
+                                        </span>
+                                        <span class="text m-left-sm">@TableInfoReader.getTableComment("Admin")</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="bg-palette3" ng-class="{'active': isAdminJournal}">
+                                <a href="/admin/adminjournal">
+                                    <span class="menu-content block">
+                                        <span class="menu-icon">
+                                            <i class="block fa fa-bookmark fa-lg" ng-class="{'fa-bookmark-o': isAdminJournal}">
+                                            </i>
+                                        </span>
+                                        <span class="text m-left-sm">@TableInfoReader.getTableComment("AdminJournal")</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="bg-palette4" ng-class="{'active': isConfig}">
+                                <a href="/admin/config">
+                                    <span class="menu-content block">
+                                        <span class="menu-icon">
+                                            <i class="block fa fa-bookmark fa-lg" ng-class="{'fa-bookmark-o': isConfig}">
+                                            </i>
+                                        </span>
+                                        <span class="text m-left-sm">@TableInfoReader.getTableComment("Config")</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="bg-palette3" ng-class="{'active': isUser}">
+                                <a href="/admin/user">
+                                    <span class="menu-content block">
+                                        <span class="menu-icon">
+                                            <i class="block fa fa-bookmark fa-lg" ng-class="{'fa-bookmark-o': isUser}">
+                                            </i>
+                                        </span>
+                                        <span class="text m-left-sm">@TableInfoReader.getTableComment("User")</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="bg-palette1" ng-class="{'active': isCar}">
+                                <a href="/admin/car">
+                                    <span class="menu-content block">
+                                        <span class="menu-icon">
+                                            <i class="block fa fa-bookmark fa-lg" ng-class="{'fa-bookmark-o': isCar}">
+                                            </i>
+                                        </span>
+                                        <span class="text m-left-sm">@TableInfoReader.getTableComment("Car")</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="bg-palette2" ng-class="{'active': isStaff}">
+                                <a href="/admin/staff">
+                                    <span class="menu-content block">
+                                        <span class="menu-icon">
+                                            <i class="block fa fa-bookmark fa-lg" ng-class="{'fa-bookmark-o': isStaff}">
+                                            </i>
+                                        </span>
+                                        <span class="text m-left-sm">@TableInfoReader.getTableComment("Staff")</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="bg-palette4" ng-class="{'active': isFix}">
+                                <a href="/admin/fix">
+                                    <span class="menu-content block">
+                                        <span class="menu-icon">
+                                            <i class="block fa fa-bookmark fa-lg" ng-class="{'fa-bookmark-o': isFix}">
+                                            </i>
+                                        </span>
+                                        <span class="text m-left-sm">@TableInfoReader.getTableComment("Fix")</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="bg-palette3" ng-class="{'active': isTicket}">
+                                <a href="/admin/ticket">
+                                    <span class="menu-content block">
+                                        <span class="menu-icon">
+                                            <i class="block fa fa-bookmark fa-lg" ng-class="{'fa-bookmark-o': isTicket}">
+                                            </i>
+                                        </span>
+                                        <span class="text m-left-sm">@TableInfoReader.getTableComment("Ticket")</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="bg-palette1" ng-class="{'active': isVisit}">
+                                <a href="/admin/visit">
+                                    <span class="menu-content block">
+                                        <span class="menu-icon">
+                                            <i class="block fa fa-bookmark fa-lg" ng-class="{'fa-bookmark-o': isVisit}">
+                                            </i>
+                                        </span>
+                                        <span class="text m-left-sm">@TableInfoReader.getTableComment("Visit")</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="bg-palette2" ng-class="{'active': isFeedback}">
+                                <a href="/admin/feedback">
+                                    <span class="menu-content block">
+                                        <span class="menu-icon">
+                                            <i class="block fa fa-bookmark fa-lg" ng-class="{'fa-bookmark-o': isFeedback}">
+                                            </i>
+                                        </span>
+                                        <span class="text m-left-sm">@TableInfoReader.getTableComment("Feedback")</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="bg-palette3" ng-class="{'active': isComplain}">
+                                <a href="/admin/complain">
+                                    <span class="menu-content block">
+                                        <span class="menu-icon">
+                                            <i class="block fa fa-bookmark fa-lg" ng-class="{'fa-bookmark-o': isComplain}">
+                                            </i>
+                                        </span>
+                                        <span class="text m-left-sm">@TableInfoReader.getTableComment("Complain")</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="bg-palette4" ng-class="{'active': isProduct}">
+                                <a href="/admin/product">
+                                    <span class="menu-content block">
+                                        <span class="menu-icon">
+                                            <i class="block fa fa-bookmark fa-lg" ng-class="{'fa-bookmark-o': isProduct}">
+                                            </i>
+                                        </span>
+                                        <span class="text m-left-sm">@TableInfoReader.getTableComment("Product")</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="bg-palette1" ng-class="{'active': isPurchase}">
+                                <a href="/admin/purchase">
+                                    <span class="menu-content block">
+                                        <span class="menu-icon">
+                                            <i class="block fa fa-bookmark fa-lg" ng-class="{'fa-bookmark-o': isPurchase}">
+                                            </i>
+                                        </span>
+                                        <span class="text m-left-sm">@TableInfoReader.getTableComment("Purchase")</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="bg-palette2" ng-class="{'active': isSale}">
+                                <a href="/admin/sale">
+                                    <span class="menu-content block">
+                                        <span class="menu-icon">
+                                            <i class="block fa fa-bookmark fa-lg" ng-class="{'fa-bookmark-o': isSale}">
+                                            </i>
+                                        </span>
+                                        <span class="text m-left-sm">@TableInfoReader.getTableComment("Sale")</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="bg-palette3" ng-class="{'active': isInfo}">
+                                <a href="/admin/info">
+                                    <span class="menu-content block">
+                                        <span class="menu-icon">
+                                            <i class="block fa fa-bookmark fa-lg" ng-class="{'fa-bookmark-o': isInfo}">
+                                            </i>
+                                        </span>
+                                        <span class="text m-left-sm">@TableInfoReader.getTableComment("Info")</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="bg-palette1" ng-class="{'active': isPop}">
+                                <a href="/admin/pop">
+                                    <span class="menu-content block">
+                                        <span class="menu-icon">
+                                            <i class="block fa fa-bookmark fa-lg" ng-class="{'fa-bookmark-o': isPop}">
+                                            </i>
+                                        </span>
+                                        <span class="text m-left-sm">@TableInfoReader.getTableComment("Pop")</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="bg-palette3" ng-class="{'active': isRed}">
+                                <a href="/admin/red">
+                                    <span class="menu-content block">
+                                        <span class="menu-icon">
+                                            <i class="block fa fa-bookmark fa-lg" ng-class="{'fa-bookmark-o': isRed}">
+                                            </i>
+                                        </span>
+                                        <span class="text m-left-sm">@TableInfoReader.getTableComment("Red")</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="bg-palette1" ng-class="{'active': isRemind}">
+                                <a href="/admin/remind">
+                                    <span class="menu-content block">
+                                        <span class="menu-icon">
+                                            <i class="block fa fa-bookmark fa-lg" ng-class="{'fa-bookmark-o': isRemind}">
+                                            </i>
+                                        </span>
+                                        <span class="text m-left-sm">@TableInfoReader.getTableComment("Remind")</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="bg-palette3" ng-class="{'active': isTalkSkill}">
+                                <a href="/admin/talkskill">
+                                    <span class="menu-content block">
+                                        <span class="menu-icon">
+                                            <i class="block fa fa-bookmark fa-lg" ng-class="{'fa-bookmark-o': isTalkSkill}">
+                                            </i>
+                                        </span>
+                                        <span class="text m-left-sm">@TableInfoReader.getTableComment("TalkSkill")</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="bg-palette1" ng-class="{'active': isSmsInfo}">
+                                <a href="/admin/smsinfo">
+                                    <span class="menu-content block">
+                                        <span class="menu-icon">
+                                            <i class="block fa fa-bookmark fa-lg" ng-class="{'fa-bookmark-o': isSmsInfo}">
+                                            </i>
+                                        </span>
+                                        <span class="text m-left-sm">@TableInfoReader.getTableComment("SmsInfo")</span>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div><!-- sidebar-inner -->
+            </aside>
+
+            <div class="main-container">
+            @content
+            </div>
+
+            <footer class="footer">
+                <span class="footer-brand">
+                    <strong class="text-danger">@biz.ConfigBiz.getStrConfig("app.name")</strong>
+                </span>
+                <p class="no-margin">
+                        @biz.ConfigBiz.getStrConfig("company.name")  &copy; @LyLib.Utils.DateUtil.NowString("YYYY")
+                </p>
+            </footer>
+        </div>
+
+            <!-- basic scripts -->
+            <script src="@routes.Assets.at("js/jquery-2.0.3.min.js")"></script>
+
+            <script src="@routes.Assets.at("js/angular-file-upload-shim.min.js")"></script>
+            <script src="@routes.Assets.at("js/angular.min.js")"></script>
+            <script src="@routes.Assets.at("js/angular-file-upload.min.js")"></script>
+            <script src="@routes.Assets.at("js/createDialog.js")"></script>
+            <script src='@routes.Assets.at("js/ui.grid.selection.js")'></script>
+            <script src='@routes.Assets.at("js/ui-grid.min.js")'></script>
+            <script src='@routes.Assets.at("js/bs_alerts.js")'></script>
+            <script src="@routes.Assets.at("js/ourLib.js")"></script>
+            <script src="@routes.Assets.at("js/autoFitColumns.min.js")"></script>
+
+            <script src='@routes.Assets.at("js/controllers/gen/admin_backend_controller.js")'></script>
+            <script src='@routes.Assets.at("js/controllers/gen/admin_journal_backend_controller.js")'></script>
+            <script src='@routes.Assets.at("js/controllers/gen/car_backend_controller.js")'></script>
+            <script src='@routes.Assets.at("js/controllers/gen/complain_backend_controller.js")'></script>
+            <script src='@routes.Assets.at("js/controllers/gen/config_backend_controller.js")'></script>
+            <script src='@routes.Assets.at("js/controllers/gen/feedback_backend_controller.js")'></script>
+            <script src='@routes.Assets.at("js/controllers/gen/fix_backend_controller.js")'></script>
+            <script src='@routes.Assets.at("js/controllers/gen/info_backend_controller.js")'></script>
+            <script src='@routes.Assets.at("js/controllers/gen/pop_backend_controller.js")'></script>
+            <script src='@routes.Assets.at("js/controllers/gen/product_backend_controller.js")'></script>
+            <script src='@routes.Assets.at("js/controllers/gen/purchase_backend_controller.js")'></script>
+            <script src='@routes.Assets.at("js/controllers/gen/red_backend_controller.js")'></script>
+            <script src='@routes.Assets.at("js/controllers/gen/remind_backend_controller.js")'></script>
+            <script src='@routes.Assets.at("js/controllers/gen/sale_backend_controller.js")'></script>
+            <script src='@routes.Assets.at("js/controllers/gen/sms_info_backend_controller.js")'></script>
+            <script src='@routes.Assets.at("js/controllers/gen/staff_backend_controller.js")'></script>
+            <script src='@routes.Assets.at("js/controllers/gen/talk_skill_backend_controller.js")'></script>
+            <script src='@routes.Assets.at("js/controllers/gen/ticket_backend_controller.js")'></script>
+            <script src='@routes.Assets.at("js/controllers/gen/user_backend_controller.js")'></script>
+            <script src='@routes.Assets.at("js/controllers/gen/visit_backend_controller.js")'></script>
+            
+            <script src='@routes.Assets.at("js/bootstrap.min.js")'></script>
+
+
+			<!-- 富文本编辑器 -->
+    		<script type="text/javascript" charset="utf-8" src='@routes.Assets.at("js/rich/application.js")'> </script>
+    		<script type="text/javascript" charset="utf-8" src='@routes.Assets.at("js/rich/doc_directive.js")'> </script>
+    		<script type="text/javascript" charset="utf-8" src='@routes.Assets.at("js/rich/simditor-all.js")'> </script>
+    		<script type="text/javascript" charset="utf-8" src='@routes.Assets.at("js/rich/angular-editor.js")'> </script>
+
+                <!-- Add fancyBox main JS and CSS files -->
+            <script type="text/javascript" src="@routes.Assets.at("js/fancybox/jquery.fancybox.js?v=2.1.5")"></script>
+            <link rel="stylesheet" type="text/css" href="@routes.Assets.at("js/fancybox/jquery.fancybox.css?v=2.1.5")" media="screen" />
+
+                <!-- Add Button helper (this is optional) -->
+            <link rel="stylesheet" type="text/css" href="@routes.Assets.at("js/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5")" />
+            <script type="text/javascript" src="@routes.Assets.at("js/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5")"></script>
+
+                <!-- Add Thumbnail helper (this is optional) -->
+            <link rel="stylesheet" type="text/css" href="@routes.Assets.at("js/fancybox/helpers/jquery.fancybox-thumbs.css?v=1.0.7")" />
+            <script type="text/javascript" src="@routes.Assets.at("js/fancybox/helpers/jquery.fancybox-thumbs.js?v=1.0.7")"></script>
+
+                <!-- Add Media helper (this is optional) -->
+            <script type="text/javascript" src="@routes.Assets.at("js/fancybox/helpers/jquery.fancybox-media.js?v=1.0.5")"></script>
+
+            <script src='@routes.Assets.at("js/bootbox.min.js")'></script>
+
+                <!-- Simplify -->
+            <script src='@routes.Assets.at("js/simplify/simplify.js")'></script>
+
+                <!-- Slimscroll -->
+            <script src='@routes.Assets.at("js/jquery.slimscroll.min.js")'></script>
+        
+            <script src='@routes.Assets.at("js/bootstrap-datetimepicker.min.js")'></script>
+            <script src='@routes.Assets.at("js/tm.pagination.js")'></script>
+            <script src='@routes.Assets.at("js/md5-min.js")'></script>
+    </body>
+</html>

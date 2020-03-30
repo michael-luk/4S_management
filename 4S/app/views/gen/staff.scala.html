@@ -1,0 +1,23 @@
+@(staffList: List[Staff]) @front_frame(TableInfoReader.getTableComment("Staff"), "StaffApp", "StaffController") {
+    @for(staff <- staffList) {
+        <ul>
+            <li>@TableInfoReader.getFieldComment("Staff", "id"): @staff.id</li>
+            <li>@TableInfoReader.getFieldComment("Staff", "name"): @staff.name</li>
+            <li>@TableInfoReader.getFieldComment("Staff", "status"): @EnumInfoReader.getEnumName("Staff", "status", staff.status)</li>
+            <li>@TableInfoReader.getFieldComment("Staff", "images"): 
+                @if(staff.images) {
+                    @for(imageFile <- staff.images.split(",")) {
+                        <a href="/showimg/upload/@imageFile" target="_blank"><img src="/showimg/thumb/@imageFile" /></a>
+                    }
+                } else {
+                      <span>无</span>                    
+                }
+            </li>
+            <li>@TableInfoReader.getFieldComment("Staff", "lastUpdateTime"): @LyLib.Utils.DateUtil.Date2Str(staff.lastUpdateTime)</li>
+            <li>@TableInfoReader.getFieldComment("Staff", "createdAt"): @LyLib.Utils.DateUtil.Date2Str(staff.createdAt)</li>
+            <li>@TableInfoReader.getFieldComment("Staff", "description1"): @staff.description1</li>
+            <li>@TableInfoReader.getFieldComment("Staff", "description2"): @staff.description2</li>
+            <li>@TableInfoReader.getFieldComment("Staff", "comment"): @staff.comment</li>
+        </ul>
+    }
+}

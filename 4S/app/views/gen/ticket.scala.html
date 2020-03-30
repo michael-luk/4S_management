@@ -1,0 +1,24 @@
+@(ticketList: List[Ticket]) @front_frame(TableInfoReader.getTableComment("Ticket"), "TicketApp", "TicketController") {
+    @for(ticket <- ticketList) {
+        <ul>
+            <li>@TableInfoReader.getFieldComment("Ticket", "id"): @ticket.id</li>
+            <li>@TableInfoReader.getFieldComment("Ticket", "name"): @ticket.name</li>
+            <li>@TableInfoReader.getFieldComment("Ticket", "status"): @EnumInfoReader.getEnumName("Ticket", "status", ticket.status)</li>
+            <li>@TableInfoReader.getFieldComment("Ticket", "description"): @ticket.description</li>
+            <li>@TableInfoReader.getFieldComment("Ticket", "images"): 
+                @if(ticket.images) {
+                    @for(imageFile <- ticket.images.split(",")) {
+                        <a href="/showimg/upload/@imageFile" target="_blank"><img src="/showimg/thumb/@imageFile" /></a>
+                    }
+                } else {
+                      <span>无</span>                    
+                }
+            </li>
+            <li>@TableInfoReader.getFieldComment("Ticket", "lastUpdateTime"): @LyLib.Utils.DateUtil.Date2Str(ticket.lastUpdateTime)</li>
+            <li>@TableInfoReader.getFieldComment("Ticket", "createdAt"): @LyLib.Utils.DateUtil.Date2Str(ticket.createdAt)</li>
+            <li>@TableInfoReader.getFieldComment("Ticket", "comment"): @ticket.comment</li>
+            <li>@TableInfoReader.getFieldComment("Ticket", "refUserId"): @ticket.refUserId</li>
+            <li>@TableInfoReader.getFieldComment("Ticket", "refStaffId"): @ticket.refStaffId</li>
+        </ul>
+    }
+}

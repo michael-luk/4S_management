@@ -1,0 +1,24 @@
+@(fixList: List[Fix]) @front_frame(TableInfoReader.getTableComment("Fix"), "FixApp", "FixController") {
+    @for(fix <- fixList) {
+        <ul>
+            <li>@TableInfoReader.getFieldComment("Fix", "id"): @fix.id</li>
+            <li>@TableInfoReader.getFieldComment("Fix", "name"): @fix.name</li>
+            <li>@TableInfoReader.getFieldComment("Fix", "status"): @EnumInfoReader.getEnumName("Fix", "status", fix.status)</li>
+            <li>@TableInfoReader.getFieldComment("Fix", "refCarId"): @fix.refCarId</li>
+            <li>@TableInfoReader.getFieldComment("Fix", "images"): 
+                @if(fix.images) {
+                    @for(imageFile <- fix.images.split(",")) {
+                        <a href="/showimg/upload/@imageFile" target="_blank"><img src="/showimg/thumb/@imageFile" /></a>
+                    }
+                } else {
+                      <span>无</span>                    
+                }
+            </li>
+            <li>@TableInfoReader.getFieldComment("Fix", "lastUpdateTime"): @LyLib.Utils.DateUtil.Date2Str(fix.lastUpdateTime)</li>
+            <li>@TableInfoReader.getFieldComment("Fix", "createdAt"): @LyLib.Utils.DateUtil.Date2Str(fix.createdAt)</li>
+            <li>@TableInfoReader.getFieldComment("Fix", "description1"): @fix.description1</li>
+            <li>@TableInfoReader.getFieldComment("Fix", "description2"): @fix.description2</li>
+            <li>@TableInfoReader.getFieldComment("Fix", "comment"): @fix.comment</li>
+        </ul>
+    }
+}

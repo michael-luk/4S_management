@@ -1,0 +1,33 @@
+@(popList: List[Pop]) @front_frame(TableInfoReader.getTableComment("Pop"), "PopApp", "PopController") {
+    @for(pop <- popList) {
+        <ul>
+            <li>@TableInfoReader.getFieldComment("Pop", "id"): @pop.id</li>
+            <li>@TableInfoReader.getFieldComment("Pop", "name"): @pop.name</li>
+            <li>@TableInfoReader.getFieldComment("Pop", "classify"): @pop.classify</li>
+            <li>@TableInfoReader.getFieldComment("Pop", "status"): @EnumInfoReader.getEnumName("Pop", "status", pop.status)</li>
+            <li>@TableInfoReader.getFieldComment("Pop", "images"): 
+                @if(pop.images) {
+                    @for(imageFile <- pop.images.split(",")) {
+                        <a href="/showimg/upload/@imageFile" target="_blank"><img src="/showimg/thumb/@imageFile" /></a>
+                    }
+                } else {
+                      <span>无</span>                    
+                }
+            </li>
+            <li>@TableInfoReader.getFieldComment("Pop", "smallImages"): 
+                @if(pop.smallImages) {
+                    @for(imageFile <- pop.smallImages.split(",")) {
+                        <a href="/showimg/upload/@imageFile" target="_blank"><img src="/showimg/thumb/@imageFile" /></a>
+                    }
+                } else {
+                      <span>无</span>                    
+                }
+            </li>
+            <li>@TableInfoReader.getFieldComment("Pop", "lastUpdateTime"): @LyLib.Utils.DateUtil.Date2Str(pop.lastUpdateTime)</li>
+            <li>@TableInfoReader.getFieldComment("Pop", "createdAt"): @LyLib.Utils.DateUtil.Date2Str(pop.createdAt)</li>
+            <li>@TableInfoReader.getFieldComment("Pop", "description1"): @pop.description1</li>
+            <li>@TableInfoReader.getFieldComment("Pop", "description2"): @pop.description2</li>
+            <li>@TableInfoReader.getFieldComment("Pop", "comment"): @pop.comment</li>
+        </ul>
+    }
+}

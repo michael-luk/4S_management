@@ -1,0 +1,42 @@
+@(userList: List[User]) @front_frame(TableInfoReader.getTableComment("User"), "UserApp", "UserController") {
+    @for(user <- userList) {
+        <ul>
+            <li>@TableInfoReader.getFieldComment("User", "id"): @user.id</li>
+            <li>@TableInfoReader.getFieldComment("User", "name"): @user.name</li>
+            <li>@TableInfoReader.getFieldComment("User", "thirdId"): @user.thirdId</li>
+            <li>@TableInfoReader.getFieldComment("User", "loginName"): @user.loginName</li>
+            <li>@TableInfoReader.getFieldComment("User", "email"): @user.email</li>
+            <li>@TableInfoReader.getFieldComment("User", "isEmailVerified"): @user.isEmailVerified</li>
+            <li>@TableInfoReader.getFieldComment("User", "emailKey"): @user.emailKey</li>
+            <li>@TableInfoReader.getFieldComment("User", "emailOverTime"): @LyLib.Utils.DateUtil.Date2Str(user.emailOverTime)</li>
+            <li>@TableInfoReader.getFieldComment("User", "password"): @user.password</li>
+            <li>@TableInfoReader.getFieldComment("User", "headImage"): @user.headImage</li>
+            <li>@TableInfoReader.getFieldComment("User", "images"): 
+                @if(user.images) {
+                    @for(imageFile <- user.images.split(",")) {
+                        <a href="/showimg/upload/@imageFile" target="_blank"><img src="/showimg/thumb/@imageFile" /></a>
+                    }
+                } else {
+                      <span>无</span>                    
+                }
+            </li>
+            <li>@TableInfoReader.getFieldComment("User", "sexEnum"): @EnumInfoReader.getEnumName("User", "sexEnum", user.sexEnum)</li>
+            <li>@TableInfoReader.getFieldComment("User", "phone"): @user.phone</li>
+            <li>@TableInfoReader.getFieldComment("User", "cardNumber"): @user.cardNumber</li>
+            <li>@TableInfoReader.getFieldComment("User", "country"): @user.country</li>
+            <li>@TableInfoReader.getFieldComment("User", "province"): @user.province</li>
+            <li>@TableInfoReader.getFieldComment("User", "city"): @user.city</li>
+            <li>@TableInfoReader.getFieldComment("User", "zone"): @user.zone</li>
+            <li>@TableInfoReader.getFieldComment("User", "address"): @user.address</li>
+            <li>@TableInfoReader.getFieldComment("User", "birth"): @LyLib.Utils.DateUtil.Date2Str(user.birth)</li>
+            <li>@TableInfoReader.getFieldComment("User", "lastUpdateTime"): @LyLib.Utils.DateUtil.Date2Str(user.lastUpdateTime)</li>
+            <li>@TableInfoReader.getFieldComment("User", "createdAt"): @LyLib.Utils.DateUtil.Date2Str(user.createdAt)</li>
+            <li>@TableInfoReader.getFieldComment("User", "lastLoginIp"): @user.lastLoginIp</li>
+            <li>@TableInfoReader.getFieldComment("User", "lastLoginTime"): @LyLib.Utils.DateUtil.Date2Str(user.lastLoginTime)</li>
+            <li>@TableInfoReader.getFieldComment("User", "lastLoginIpArea"): @user.lastLoginIpArea</li>
+            <li>@TableInfoReader.getFieldComment("User", "status"): @EnumInfoReader.getEnumName("User", "status", user.status)</li>
+            <li>@TableInfoReader.getFieldComment("User", "userRoleEnum"): @EnumInfoReader.getEnumName("User", "userRoleEnum", user.userRoleEnum)</li>
+            <li>@TableInfoReader.getFieldComment("User", "comment"): @user.comment</li>
+        </ul>
+    }
+}
